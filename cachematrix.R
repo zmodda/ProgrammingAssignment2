@@ -15,6 +15,8 @@ makeCacheMatrix <- function(x=matrix()) { # Take a matrix of n x n.
                 x <<- y
                 m <<- NULL
         }
+	# We proceed to create a list that will contain information of the matrix
+	# so that we may use it to cache the inverse matrix.
         get <- function() x
         setinv <- function(invr) m <<- invr
         getinv <- function() m
@@ -28,16 +30,16 @@ makeCacheMatrix <- function(x=matrix()) { # Take a matrix of n x n.
 ## calculated (and the matrix has not changed), then the cachesolve should 
 ## retrieve the inverse from the cache.
 
-cacheSolve <- function(x, ...) {
-        m <- x$getinv()
-        if(!is.null(m)) {
+cacheSolve <- function(x, ...) { # This function will recieve the result of makeCacheMatrix
+        m <- x$getinv() # m is where we store the inverse matrix
+        if(!is.null(m)) { # If m is to be recognized in our cache, a message will return along with m.
                 message("...huh, I've seen that one before...")
                 return(m)
         }
-        data <- x$get()
+        data <- x$get() # In case it is a new matrix, the inverse will be calculated.
         m <- solve(data, ...)
         x$setinv(m)
-        return(m)
+        return(m) # Returns the inverse matrix.
 }
 
 ## To test it, write out something similar to the following:
