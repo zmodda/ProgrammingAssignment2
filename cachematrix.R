@@ -42,6 +42,7 @@ cacheSolve <- function(x, ...) { # This function will recieve the result of make
         return(m) # Returns the inverse matrix.
 }
 
+################## EXAMPLE ####################
 ## To test it, write out something similar to the following:
 w <- c(1,3,2,4) # The elements of our matrix.
 
@@ -53,3 +54,19 @@ cacheSolve(a)
 
 ## Finally, if you run this last line of code, you'll get a message that 
 ## it's an answer that's already in Cache.
+
+cacheSolve(a)
+
+## Running the example code gives us:
+# w <- c(1,3,2,4) # The elements of our matrix.
+# a <- makeCacheMatrix(matrix(w,2)) 
+# cacheSolve(a)
+#     [,1] [,2]
+# [1,] -2.0  1.0
+# [2,]  1.5 -0.5
+# cacheSolve(a)
+# ...huh, I've seen that one before...
+#     [,1] [,2]
+# [1,] -2.0  1.0
+# [2,]  1.5 -0.5
+ 
