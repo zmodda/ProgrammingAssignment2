@@ -31,7 +31,7 @@ makeCacheMatrix <- function(x=matrix()) { # Take a matrix of n x n.
 cacheSolve <- function(x, ...) { # This function will recieve the result of makeCacheMatrix
         m <- x$getinv() # check the cache of x
         if(!is.null(m)) { # If there is a value for m cache-ed, a message will return along with m.
-                message("...huh, I've seen that one before...")
+                message("...getting cached data...")
                 return(m) # The result thrown back
         }
         data <- x$get() # In case it is a new matrix, the inverse will be calculated.
@@ -40,7 +40,7 @@ cacheSolve <- function(x, ...) { # This function will recieve the result of make
         return(m) # Returns the inverse matrix.
 }
 
-################## EXAMPLE ####################
+######################### EXAMPLE #########################
 ## To test it, write out something similar to the following:
 w <- c(1,2,3,4) # The elements of our matrix.
 
@@ -64,7 +64,7 @@ cacheSolve(a)
 # [2,]    1 -0.5
 # >
 # > cacheSolve(a)
-# ...huh, I've seen that one before...
+# ...getting cached data...
 #      [,1] [,2]
 # [1,]   -2  1.5
 # [2,]    1 -0.5
